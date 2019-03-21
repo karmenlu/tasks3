@@ -65,7 +65,6 @@ function TaskCreateForm(props) {
 
 
 function state2props(state) {
-    console.log("rerender", state);
     return {
         users: state.users,
         add_task_forms: state.add_task_forms

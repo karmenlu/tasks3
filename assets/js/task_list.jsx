@@ -89,7 +89,6 @@ function Task(props) {
 }
 
 function state2props(state) {
-    console.log("rerender", state);
     return {
         doers: state.add_task_forms,
         tasks: state.tasks,

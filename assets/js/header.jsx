@@ -17,7 +17,6 @@ function Header(props) {
           type: "UPDATE_LOGIN",
           name: ev.target.value
       };
-      console.log(action);
       dispatch(action);
   }
   function update_password(ev) {
@@ -43,7 +42,7 @@ function Header(props) {
   if (session == null) {
     let error = [];
       if (login_form.message) {
-        error = <div key="1" className="alert alert-danger" role="alert">
+        error = <div key="1" className="alert alert-info" role="alert">
             {login_form.message}
         </div>;
       }

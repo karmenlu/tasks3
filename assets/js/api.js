@@ -74,7 +74,9 @@ class TheServer {
       this.send_post("/api/v1/users",
           {"user": {name, password}},
           (resp) => {
-              console.log("registerd", resp)
+            store.dispatch({
+              type: 'REGISTERED',
+            });
           })
   }
 

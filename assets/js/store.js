@@ -85,6 +85,10 @@ function login_form(state = login_form0, action) {
             state1 = _.clone(state);
             state1.message = "Wrong username or password";
             return state1;
+        case 'REGISTERED':
+            state1 = _.clone(state);
+            state1.message = "Register success. Now log in";
+            return state1;
         default:
             return state;
     }
@@ -107,12 +111,9 @@ function add_task_forms(state = add_task0, action) {
 }
 
 function root_reducer(state0, action) {
-    console.log("reducer", state0, action);
-
     let reducer = combineReducers({tasks, users, tasksAssigned, session,
         login_form, add_task_forms});
     let state1 = reducer(state0, action);
-    console.log("reducer1", state1);
 
     return deepFreeze(state1);
 }

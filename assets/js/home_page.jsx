@@ -17,7 +17,6 @@ function HomePage(props) {
 }
 
 function state2props(state) {
-    console.log("rerender", state);
     return {
         session: state.session
     };
