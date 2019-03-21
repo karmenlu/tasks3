@@ -1,0 +1,18 @@
+[Unit]
+Description=Tasks3 Tracker
+
+[Service]
+Type=simple
+User=tasks3
+Group=tasks3
+Restart=on-failure
+Environment=MIX_ENV=prod "PORT=4796"
+Environment=LANG=en_US.UTF-8
+
+WorkingDirectory=/home/tasks3/tasks3
+ExecStart=/home/tasks3/tasks3/start.sh
+
+[Install]
+WantedBy=multi-user.target
+
+
