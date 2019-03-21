@@ -13,8 +13,6 @@ defmodule Tasks3Web.UserView do
   def render("user.json", %{user: user}) do
     %{id: user.id,
       name: user.name,
-      password_hash: user.password_hash,
-      pw_tries: user.pw_tries,
-      pw_last_try: user.pw_last_try}
+      }
   end
 end

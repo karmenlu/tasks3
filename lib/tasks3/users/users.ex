@@ -38,6 +38,16 @@ defmodule Tasks3.Users do
   def get_user!(id), do: Repo.get!(User, id)
 
   @doc """
+  Attribution Nat Tuck husky_shop_spa
+  Authenticates a user.
+  Returns {:ok, user} on success, or {:error, msg} on failure.
+  """
+  def authenticate_user(name, password) do
+    Repo.get_by(User, name: name)
+    |> Argon2.check_pass(password)
+  end
+
+  @doc """
   Creates a user.
 
   ## Examples
@@ -50,6 +60,9 @@ defmodule Tasks3.Users do
 
   """
   def create_user(attrs \\ %{}) do
+    attrs = Map.put(attrs, "password_hash", Argon2.hash_pwd_salt(Map.get(attrs, "password")))
+            |> Map.put("pw_last_try", NaiveDateTime.utc_now())
+            |> Map.put("pw_tries", 0)
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()

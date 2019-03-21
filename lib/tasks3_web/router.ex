@@ -17,10 +17,14 @@ defmodule Tasks3Web.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/create_task", PageController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Tasks3Web do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", Tasks3Web do
+    pipe_through :api
+    resources "/users", UserController, except: [:new, :edit]
+    resources "/tasks", TaskController, except: [:new, :edit]
+    post "/auth", AuthController, :authenticate
+  end
 end

@@ -7,7 +7,7 @@ defmodule Tasks3.Users.User do
     field :password_hash, :string
     field :pw_last_try, :utc_datetime
     field :pw_tries, :integer
-    field :tasksAssigned, :id
+    has_many :tasksAssigned, Tasks3.Tasks.Task, foreign_key: :doer_id
 
     timestamps()
   end
@@ -17,5 +17,6 @@ defmodule Tasks3.Users.User do
     user
     |> cast(attrs, [:name, :password_hash, :pw_tries, :pw_last_try])
     |> validate_required([:name, :password_hash, :pw_tries, :pw_last_try])
+    |> unique_constraint(:name)
   end
 end
