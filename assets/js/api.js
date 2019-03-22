@@ -74,6 +74,7 @@ class TheServer {
       this.send_post("/api/v1/users",
           {"user": {name, password}},
           (resp) => {
+            this.fetch_users();
             store.dispatch({
               type: 'REGISTERED',
             });
@@ -104,10 +105,10 @@ class TheServer {
         "/api/v1/tasks",
         {"task": {title, description, doer_id}},
         (resp) => {
+            this.fetch_tasks();
             store.dispatch({
                 type: 'FINISH_ADD_TASK_FORM',
             });
-            api.fetch_tasks();
         }
     );
   }
