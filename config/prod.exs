@@ -61,7 +61,7 @@ config :logger, level: :info
 # Alternatively, you can configure exactly which server to
 # start per endpoint:
 #
-#     config :tasks3, Tasks3Web.Endpoint, server: true
+config :tasks3, Tasks3Web.Endpoint, server: true
 #
 # Note you can't rely on `System.get_env/1` when using releases.
 # See the releases documentation accordingly.
