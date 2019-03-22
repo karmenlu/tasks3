@@ -1,20 +1,22 @@
 # Tasks3
 
-To start your Phoenix server:
+- Design Choices:
+The simulation of multiple pages linked in the navigation bar is available
+to existing users that are logged in.
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+Because there are no managers, tasks may be assigned by any user to any user. 
+This is justified because once a task is created, the task does not belong to
+any particular user. 
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Any user may reassign a task to his/her self.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+- Error handling:
+Invalid usernames/passwords trigger an alert.
 
-## Learn more
+As specified by the assignment requirements, time
+spent is restricted to non-negative, 15-minute increments.
+Invalid time spent input triggers an alert.
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+- Additional Features:
+Completed tasks, once checked, change to a green color to
+denote their completion.
